@@ -19,7 +19,7 @@ public class GuessingGame {
 
         while(true){
 
-            System.out.println("Please enter your guess: ");
+            System.out.println("Please enter your guess: "); //este codigo ha sido cambiado
 
             try{
                 zahl = input.nextInt();
