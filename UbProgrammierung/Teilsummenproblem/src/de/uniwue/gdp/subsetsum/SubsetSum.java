@@ -13,6 +13,7 @@ public class SubsetSum {
         int n = num.nextInt();
         double[ ] numbers = new double[n];
         double bestsum = 0;
+        long bestsubset = 0;
         double distance = Double.MAX_VALUE; //Speichert die Abstand zwischen die Summen und PI
 
 
@@ -43,8 +44,21 @@ public class SubsetSum {
             if(currentDistance < distance){
                 distance = currentDistance;
                 bestsum = currentsum;
+                bestsubset = subset;
             }
         }
-
+        System.out.println("Best subset sum: ");
+        boolean f = true;
+        System.out.print(bestsum + " [");
+        for(int i=0; i<n; i++){
+            if(((bestsubset >> i)&1)==1){
+                if(!f){
+                    System.out.print(", ");
+                }
+                System.out.print(numbers[i]);
+                f = false;
+            }
+        }
+        System.out.println("]");
     }
 }
