@@ -35,7 +35,14 @@ public class SubsetSum {
         for(long subset = 0; subset < (1L<<n); subset++){
             double currentsum = 0;
             for(int i=0; i<n; i++){
-
+                if(((subset >> i)&1)==1){
+                    currentsum += numbers[i];
+                }
+            }
+            double currentDistance = Math.abs(Math.PI - currentsum); //Math.abs = Absolut value --> kein negativer Wert
+            if(currentDistance < distance){
+                distance = currentDistance;
+                bestsum = currentsum;
             }
         }
 
